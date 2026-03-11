@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cátedra de Ingeniería "Alberto Benavides de la Quintana" – USIL</title>
+    <style>
+        :root {
+            --dark-blue: #0f1b2d;
+            --medium-blue: #1a2d4a;
+            --accent-blue: #2c5f8a;
+            --light-accent: #3d7ab5;
+            --gold: #c9a84c;
+            --light-gold: #dfc06b;
+            --white: #f0f2f5;
+            --text-light: #dce1e8;
+            --text-muted: #8a95a5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(180deg, #0a1220 0%, var(--dark-blue) 100%);
+            border-bottom: 2px solid var(--gold);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .header-brand img {
+            height: 55px;
+            filter: brightness(0) invert(1);
+        }
+
+        .header-brand .faculty-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.3;
+            border-left: 2px solid var(--gold);
+            padding-left: 1rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #0a1e3d 50%, var(--medium-blue) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(44, 95, 138, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            padding-right: 1rem;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark-blue);
+            padding: 0.85rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .hero-cta:hover {
+            background: var(--light-gold);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 460px;
+            border-radius: 6px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .hero-image .img-caption {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: linear-gradient(180deg, var(--dark-blue) 0%, #101e30 100%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .about-highlight {
+            background: var(--medium-blue);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem 2rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .about-highlight p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* VISION & MISSION */
+        .vision-mission {
+            background: linear-gradient(180deg, #101e30 0%, var(--medium-blue) 100%);
+            padding: 5rem 2rem;
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .vm-card {
+            background: rgba(15, 27, 45, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-top: 3px solid var(--gold);
+            border-radius: 0 0 6px 6px;
+            padding: 2rem 2.2rem;
+        }
+
+        .vm-card .section-label {
+            margin-bottom: 1rem;
+        }
+
+        .vm-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        @media (max-width: 900px) {
+            .vm-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* OBJECTIVES */
+        .objectives {
+            background: var(--medium-blue);
+        }
+
+        .obj-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .obj-card {
+            background: rgba(15, 27, 45, 0.6);
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            border-radius: 6px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .obj-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .obj-card .obj-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+
+        .obj-card .obj-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+            opacity: 0.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .obj-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.6rem;
+        }
+
+        .obj-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* THEMES */
+        .themes {
+            background: linear-gradient(180deg, #101e30 0%, var(--dark-blue) 100%);
+        }
+
+        .themes-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .theme-item {
+            background: rgba(26, 45, 74, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .theme-item:hover {
+            border-color: var(--gold);
+        }
+
+        .theme-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .theme-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.4rem;
+        }
+
+        .theme-item p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ACTIVITIES */
+        .activities {
+            background: var(--medium-blue);
+        }
+
+        .act-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .act-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(15, 27, 45, 0.5);
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .act-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(201, 168, 76, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .act-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .act-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* COUNCIL */
+        .council {
+            background: linear-gradient(180deg, var(--dark-blue) 0%, #0a1220 100%);
+        }
+
+        .council-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .council-card {
+            text-align: center;
+            background: rgba(26, 45, 74, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            padding: 2rem 1.2rem;
+        }
+
+        .council-card .role-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .council-card h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .council-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTEXT */
+        .context {
+            background: var(--medium-blue);
+        }
+
+        .context-text {
+            max-width: 800px;
+        }
+
+        .context-text p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+        }
+
+        .rev-timeline {
+            display: flex;
+            gap: 0;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .rev-timeline::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(201, 168, 76, 0.25);
+        }
+
+        .rev-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 0.5rem;
+        }
+
+        .rev-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 26px auto 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rev-item h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .rev-item p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--medium-blue) 100%);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .hero-cta {
+            font-size: 1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #060d17;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        footer img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            opacity: 0.6;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        /* MODAL PDF */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--dark-blue);
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+        }
+
+        .modal-header h3 {
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--gold);
+            color: var(--dark-blue);
+        }
+
+        .modal-body {
+            flex: 1;
+            overflow: auto;
+        }
+
+        .modal-body iframe,
+        .modal-body embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-desc {
+                max-width: 100%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .obj-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .themes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin: 0 0.5rem;
+            }
+
+            .rev-timeline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .rev-timeline::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-inner">
+            <div class="header-brand">
+                <img src="./contents/usil_logo_negro.png" alt="USIL Logo">
+                <div class="faculty-name">Facultad de Ingeniería<br>e Inteligencia Artificial</div>
+            </div>
+            <nav>
+                <a href="#about">Acerca de</a>
+                <a href="#vision-mission">Visión y Misión</a>
+                <a href="#objectives">Objetivos</a>
+                <a href="#themes">Temáticas</a>
+                <a href="#activities">Actividades</a>
+                <a href="#council">Consejo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-tag">Evento Académico — USIL 2026</div>
+                <h1 class="hero-title">Cátedra de Ingeniería<br><span>"Alberto Benavides<br>de la Quintana"</span></h1>
+                <p class="hero-subtitle">Honrando el legado. Inspirando el futuro.</p>
+                <p class="hero-desc">Un espacio académico de alto nivel dedicado a la reflexión, difusión y generación de conocimiento en torno a la Ingeniería, la Tecnología, la Computación y su impacto en la sociedad y la industria.</p>
+                <a href="#about" class="hero-cta">Conocer más</a>
+            </div>
+            <div class="hero-image">
+                <div>
+                    <img src="./contents/DonAlbertoBenavidesdelaQuintana.JPG" onerror="this.onerror=null;this.src='./contents/DonAlbertoBenavidesdelaQuintana.jpg';" alt="Dr. Alberto Benavides de la Quintana">
+                    <p class="img-caption">Dr. Alberto Benavides de la Quintana<br>Ingeniero visionario y pionero de la minería peruana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="section-inner">
+            <span class="section-label">Acerca de la Cátedra</span>
+            <h2 class="section-title">Un legado que trasciende generaciones</h2>
+            <p class="section-subtitle">Inspirada en la trayectoria del destacado ingeniero peruano, fundador de la Compañía de Minas Buenaventura S.A.A.</p>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>La Cátedra de Ingeniería "Alberto Benavides de la Quintana" de la Universidad San Ignacio de Loyola (USIL) busca articular la academia, la empresa y los colegios profesionales para impulsar una ingeniería ética, innovadora, sostenible y comprometida con el desarrollo del país.</p>
+                    <p>El Ingeniero Alberto Benavides de la Quintana nació el 21 de octubre de 1920. Estudió Ingeniería de Minas en la Escuela de Ingenieros del Perú (hoy Universidad Nacional de Ingeniería) y cursó una Maestría en Geología en la Universidad de Harvard.</p>
+                    <p>Como Ingeniero Geólogo fue un pionero en los procesos de exploración de recursos minerales y un visionario del rol transformador que la minería podía producir en su entorno. Comprendió de manera sistémica que la industria minera podía ser el nexo articulador de progreso entre los Andes y la costa, de manera sostenible, produciendo bienestar en sus poblaciones.</p>
+                </div>
+                <div>
+                    <div class="about-highlight">
+                        <p><strong>La Cátedra</strong> es un espacio de intercambio académico sobre tópicos vinculados a la Ingeniería, Tecnología, Computación y su impacto en la sociedad y la industria. Realizará un ciclo de conferencias que incentiven el desarrollo de proyectos de I+D+i+e entre alumnos, egresados, docentes, investigadores y miembros de la industria.</p>
+                    </div>
+                    <br>
+                    <div class="about-highlight">
+                        <p><strong>Periodicidad:</strong> La cátedra se realizará de manera anual en el segundo periodo académico de la Universidad, con una duración de uno o dos días de acuerdo con la agenda programada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISIÓN Y MISIÓN -->
+    <section class="vision-mission" id="vision-mission">
+        <div class="section-inner">
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <span class="section-label">Visión</span>
+                    <p>Ser un referente nacional e internacional en el análisis, la generación y la difusión de conocimiento en ingeniería, tecnología y computación, reconocida por su impacto en la formación de ingenieros líderes, la articulación con la industria y la contribución efectiva al desarrollo sostenible y competitivo del país.</p>
+                </div>
+                <div class="vm-card">
+                    <span class="section-label">Misión</span>
+                    <p>La Cátedra de Ingeniería "Alberto Benavides de la Quintana" tiene como misión promover la reflexión, la formación y la vinculación entre academia, empresa y sociedad en torno a la ingeniería, la tecnología y la computación, impulsando la investigación aplicada, la innovación y el ejercicio ético y responsable de la profesión para contribuir al desarrollo sostenible del Perú.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section class="objectives" id="objectives">
+        <div class="section-inner">
+            <span class="section-label">Objetivos</span>
+            <h2 class="section-title">Nuestros objetivos</h2>
+            <p class="section-subtitle">Cuatro pilares que guían el propósito de la Cátedra.</p>
+            <div class="obj-grid">
+                <div class="obj-card">
+                    <div class="obj-icon">&#9998;</div>
+                    <div class="obj-num">01</div>
+                    <h3>Debate e intercambio</h3>
+                    <p>Promover el debate informado sobre los desafíos y oportunidades de la ingeniería contemporánea, con énfasis en el contexto peruano y latinoamericano.</p>
+                </div>
+                <div class="obj-card">
+                    <div class="obj-icon">&#9881;</div>
+                    <div class="obj-num">02</div>
+                    <h3>Investigación aplicada</h3>
+                    <p>Fomentar la investigación aplicada y el desarrollo tecnológico con impacto en la productividad, la competitividad y la sostenibilidad.</p>
+                </div>
+                <div class="obj-card">
+                    <div class="obj-icon">&#9670;</div>
+                    <div class="obj-num">03</div>
+                    <h3>Formación integral</h3>
+                    <p>Contribuir a la formación integral de los estudiantes de ingeniería, fortaleciendo sus competencias técnicas, éticas y de liderazgo.</p>
+                </div>
+                <div class="obj-card">
+                    <div class="obj-icon">&#9733;</div>
+                    <div class="obj-num">04</div>
+                    <h3>Colaboración estratégica</h3>
+                    <p>Establecer puentes de colaboración entre la universidad, la industria, los colegios profesionales y las instituciones académicas especializadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THEMES -->
+    <section class="themes" id="themes">
+        <div class="section-inner">
+            <span class="section-label">Líneas Temáticas</span>
+            <h2 class="section-title">Ejes de conocimiento</h2>
+            <p class="section-subtitle">Las áreas estratégicas que articulan la investigación y el diálogo académico.</p>
+            <div class="themes-list">
+                <div class="theme-item">
+                    <div class="theme-icon">&#9881;</div>
+                    <h3>Innovación tecnológica y transformación digital</h3>
+                    <p>Impulsando la adopción de nuevas tecnologías en la industria.</p>
+                </div>
+                <div class="theme-item">
+                    <div class="theme-icon">&#9878;</div>
+                    <h3>Industria 4.0, automatización y ciencia de datos</h3>
+                    <p>Convergencia de tecnologías digitales, físicas y biológicas.</p>
+                </div>
+                <div class="theme-item">
+                    <div class="theme-icon">&#9853;</div>
+                    <h3>Minería, energía y recursos naturales sostenibles</h3>
+                    <p>Desarrollo responsable de los recursos del país.</p>
+                </div>
+                <div class="theme-item">
+                    <div class="theme-icon">&#9960;</div>
+                    <h3>Infraestructura y ciudades inteligentes</h3>
+                    <p>Resiliencia urbana y planificación sostenible.</p>
+                </div>
+                <div class="theme-item">
+                    <div class="theme-icon">&#9879;</div>
+                    <h3>Ética profesional y responsabilidad social</h3>
+                    <p>Gobernanza tecnológica y compromiso con la sociedad.</p>
+                </div>
+                <div class="theme-item">
+                    <div class="theme-icon">&#127891;</div>
+                    <h3>Emprendimiento de base tecnológica</h3>
+                    <p>Publicaciones, patentes, proyectos de I+D+i.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTEXT -->
+    <section class="context" id="context">
+        <div class="section-inner">
+            <span class="section-label">Contexto</span>
+            <h2 class="section-title">Las revoluciones industriales y el futuro</h2>
+            <div class="context-text">
+                <p>Las revoluciones industriales son periodos de gran transformación social, económica, cultural y humana, caracterizados por avances tecnológicos y cambios en los métodos de producción liderados por las ciencias básicas y las ingenierías.</p>
+            </div>
+            <div class="rev-timeline">
+                <div class="rev-item">
+                    <div class="rev-dot"></div>
+                    <h4>1.a Revolución</h4>
+                    <p>Siglo XVIII — Máquina de vapor y mecanización</p>
+                </div>
+                <div class="rev-item">
+                    <div class="rev-dot"></div>
+                    <h4>2.a Revolución</h4>
+                    <p>Finales s. XIX — Producción en masa y electricidad</p>
+                </div>
+                <div class="rev-item">
+                    <div class="rev-dot"></div>
+                    <h4>3.a Revolución</h4>
+                    <p>Mediados s. XX — Electrónica, computadoras y telecomunicaciones</p>
+                </div>
+                <div class="rev-item">
+                    <div class="rev-dot"></div>
+                    <h4>4.a Revolución</h4>
+                    <p>Actualidad — IA, IoT, impresión 3D y nanotecnología</p>
+                </div>
+                <div class="rev-item">
+                    <div class="rev-dot"></div>
+                    <h4>5.a Revolución</h4>
+                    <p>Emergente — IA avanzada, biotecnología y sostenibilidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACTIVITIES -->
+    <section class="activities" id="activities">
+        <div class="section-inner">
+            <span class="section-label">Actividades</span>
+            <h2 class="section-title">Programa de la Cátedra</h2>
+            <p class="section-subtitle">Un ciclo completo de actividades académicas y profesionales.</p>
+            <div class="act-list">
+                <div class="act-item">
+                    <div class="act-icon">&#127908;</div>
+                    <div>
+                        <h3>Conferencias magistrales</h3>
+                        <p>Seminarios y conversatorios con líderes de la industria y la academia.</p>
+                    </div>
+                </div>
+                <div class="act-item">
+                    <div class="act-icon">&#128218;</div>
+                    <div>
+                        <h3>Charlas técnicas y mesas redondas</h3>
+                        <p>Discusión especializada sobre temas de vanguardia tecnológica.</p>
+                    </div>
+                </div>
+                <div class="act-item">
+                    <div class="act-icon">&#129309;</div>
+                    <div>
+                        <h3>Programas de mentoría</h3>
+                        <p>Encuentros con líderes de la industria para guiar a nuevas generaciones.</p>
+                    </div>
+                </div>
+                <div class="act-item">
+                    <div class="act-icon">&#128240;</div>
+                    <div>
+                        <h3>Publicaciones e investigación</h3>
+                        <p>Boletines y difusión de investigaciones relevantes en ingeniería.</p>
+                    </div>
+                </div>
+                <div class="act-item">
+                    <div class="act-icon">&#127942;</div>
+                    <div>
+                        <h3>Reconocimientos y premios</h3>
+                        <p>Distinción a proyectos destacados de estudiantes e investigadores.</p>
+                    </div>
+                </div>
+                <div class="act-item">
+                    <div class="act-icon">&#128161;</div>
+                    <div>
+                        <h3>Proyectos de I+D+i+e</h3>
+                        <p>Publicaciones científicas, patentes y emprendimientos de base tecnológica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNCIL -->
+    <section class="council" id="council">
+        <div class="section-inner">
+            <span class="section-label">Consejo Consultivo</span>
+            <h2 class="section-title">Liderazgo de alto nivel</h2>
+            <p class="section-subtitle">Integrado por autoridades universitarias, representantes de la industria y colegios profesionales.</p>
+            <div class="council-members">
+                <div class="council-card">
+                    <div class="role-icon">&#127979;</div>
+                    <h3>Rector</h3>
+                    <p>Universidad San Ignacio de Loyola</p>
+                </div>
+                <div class="council-card">
+                    <div class="role-icon">&#127891;</div>
+                    <h3>Decano</h3>
+                    <p>Facultad de Ingeniería e Inteligencia Artificial – USIL</p>
+                </div>
+                <div class="council-card">
+                    <div class="role-icon">&#9878;</div>
+                    <h3>Representante</h3>
+                    <p>Academia Peruana de Ingeniería</p>
+                </div>
+                <div class="council-card">
+                    <div class="role-icon">&#128200;</div>
+                    <h3>Representante</h3>
+                    <p>Colegio de Ingenieros del Perú – Lima</p>
+                </div>
+                <div class="council-card">
+                    <div class="role-icon">&#9874;</div>
+                    <h3>Representante</h3>
+                    <p>Cía. de Minas Buenaventura S.A.A.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <a href="#" onclick="document.getElementById('pdfModal').classList.add('active'); return false;" class="hero-cta">Ver Reglamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PDF -->
+    <div class="modal-overlay" id="pdfModal" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Reglamento de la Cátedra</h3>
+                <button class="modal-close" onclick="document.getElementById('pdfModal').classList.remove('active')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <embed src="./contents/Reglamento.pdf" type="application/pdf">
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Sé parte de esta Cátedra</h2>
+        <p>La Cátedra "Alberto Benavides de la Quintana" se proyecta como un referente nacional en la promoción de una ingeniería al servicio del desarrollo sostenible del Perú y de la región.</p>
+        <a href="#hero" class="hero-cta">Más información</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <img src="./contents/usil_logo_negro.png" alt="USIL">
+        <p>Cátedra de Ingeniería "Alberto Benavides de la Quintana"</p>
+        <p>Facultad de Ingeniería e Inteligencia Artificial — Universidad San Ignacio de Loyola</p>
+        <p style="margin-top: 0.8rem; font-size: 0.75rem;">&copy; 2026 USIL. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
